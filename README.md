@@ -37,7 +37,7 @@ Repositorio destinado a almacenar las prácticas, tareas y ejercicios de la carr
   * Renderizado repetitivo eficiente utilizando estructuras de control iterativas (`for`).
 * [🔗 Ver mosaico aleatorio en vivo](https://mkowoj.github.io/Practicas-Universidad/Generador-Mosaico-Canvas/)
 
-* ## 6. Sitio web responsivo para promover Bacalar, Quintana Roo
+## 6. Sitio web responsivo para promover Bacalar, Quintana Roo
 * **Carpeta:** `sitio-promocion-turismo`
 * **Descripción:** El sitio muestra la estructura de un sitio web para promocionar un lugar turístico. Contiene información básica como historia, contacto y secciones basado en las necesidades del cliente. Usa HTML y CSS siguiendo un diseño basado en la arquitectura de información y responsividad.
 * **Conceptos aplicados:**
@@ -45,24 +45,24 @@ Repositorio destinado a almacenar las prácticas, tareas y ejercicios de la carr
   * Buenas prácticas de responsividad
 * [🔗 Ver sitio web en vivo](https://mkowoj.github.io/Practicas-Universidad/sitio-promocion-turismo/)
 
-* ## 7. Reloj
+## 7. Reloj
 * **Carpeta:** `Reloj`
 * **Descripción:** Integrando el desarrollo de HTML, CSS y javascript para mostrar la hora actual.
 * **Conceptos aplicados:**
   * Integración de JS, HTML y CSS
 * [🔗 Ver sitio web en vivo](https://mkowoj.github.io/Practicas-Universidad/Reloj/)
 
-* ## 8. Cuento
+## 8. Cuento
 * **Carpeta:** `Cuento`
 * **Descripción:** Creación de un sitio web para visualizar un cuento realizado con procreate y usando imágenes como botones de avanzar. 
 * [🔗 Ver sitio web en vivo](https://mkowoj.github.io/Practicas-Universidad/Cuento/)
 
-* ## 9. Pagina con web responsive
+## 9. Pagina con web responsive
 * **Carpeta:** `responsivo-ejercicio`
 * **Descripción:** Creación de un sitio web para visualizar un cuento realizado con procreate y usando imágenes como botones de avanzar. 
 * [🔗 Ver sitio web en vivo](https://mkowoj.github.io/Practicas-Universidad/responsivo-ejercicio/)
 
-* ## 10. Tienda online de rascadores
+## 10. Tienda online de rascadores
 * **Carpeta:** `sitio-ecommerce-rascadores`
 * **Descripción:** Interfaz de tienda en línea para la comercialización de rascadores modulares de gato, desarrollada con un enfoque en la optimización de recursos multimedia y la persistencia de datos local para mejorar la velocidad de carga.
 * **Conceptos aplicados:**
