@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ráscate en Casa · Rascadores para gato</title>
+  <meta name="description" content="Rascadores modulares para gato: elige tamaño, color y material. Envío fácil y armado rápido." />
+  <link rel="stylesheet" href="styleUno.css" />
+  <link rel="stylesheet" href="style2.css" />
+
+  <style>
+    :root { --icon-size: 64px; }
+
+    .site-header {
+      background: #fbf9f7;
+      border-bottom: 1px solid #e9e2dc;
+      padding: 12px 16px;
+    }
+    .header-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .site-header h1 {
+      font-size: 32px;
+      margin: 0;
+      color: #222;
+      line-height: 1;
+    }
+
+    .header-actions { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+    .sprite-wrap { display:inline-flex; align-items:center; height: var(--icon-size); }
+    .socials { display:inline-flex; gap:8px; align-items:center; }
+
+    .socials a.icon {
+      display:inline-block;
+      width: var(--icon-size);
+      height: var(--icon-size);
+      background-image: url("iconos-redes.png");
+      background-repeat: no-repeat;
+      background-size: 256px 64px; 
+      text-decoration: none;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform .12s ease, filter .12s ease;
+    }
+
+    .icon--whatsapp  { background-position:   0px    0px; }
+    .icon--facebook  { background-position: -64px  0px; }
+    .icon--youtube   { background-position: -128px 0px; }
+    .icon--instagram { background-position: -192px 0px; }
+
+    .socials a.icon:hover,
+    .socials a.icon:focus { transform: translateY(-3px); filter: brightness(1.06); outline: none; }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    nav[aria-label="principal"] { max-width:1200px; margin:12px auto 0; padding:0 16px; }
+    .menu { list-style:none; display:flex; gap:18px; padding:0; margin:0; align-items:center; flex-wrap:wrap; }
+    .menu a { text-decoration:none; color:#333; padding:6px 8px; display:inline-block; }
+
+
+    .oferta-buen-fin {
+      text-align: center;
+      padding: 40px 16px;
+      background-color: #fff0f0; 
+    }
+    .oferta-buen-fin h3 {
+      font-size: 2rem;
+      color: #d32f2f; 
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .oferta-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .oferta-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+    }
+   
+    .oferta-actions {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px; 
+      width: 100%;
+      justify-content: center;
+    }
+ 
+    .btn-go-cart {
+      display: none; 
+      background-color: #4CAF50; 
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn-go-cart.visible {
+      display: inline-block; 
+    }
+    .btn-go-cart:hover { background-color: #45a049; }
+    
+
+    .oferta-card img {
+      width: 60%; 
+      height: auto;
+      object-fit: cover;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+    .oferta-card figcaption {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+
+
+    @media (max-width:720px) {
+      .header-top { flex-direction:column; align-items:flex-start; gap:8px; }
+      :root { --icon-size: 48px; }
+      .socials a.icon { background-size: 192px 48px; }
+      .icon--whatsapp  { background-position: 0 0; }
+      .icon--facebook  { background-position: -48px 0; }
+      .icon--youtube   { background-position: -96px 0; }
+      .icon--instagram { background-position: -144px 0; }
+      
+      .oferta-grid { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body class="Tipo1 Tipo2">
+  <header class="site-header">
+    <div class="header-top">
+      <h1>Ráscate en Casa</h1>
+
+      <div class="header-actions" aria-hidden="false">
+        <div class="sprite-wrap" role="img" aria-label="Redes sociales">
+          <nav class="socials" aria-label="Enlaces a redes sociales">
+            <a class="icon icon--whatsapp" href="https://wa.me/521XXXXXXXXXXX" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><span class="sr-only">WhatsApp</span></a>
+            <a class="icon icon--facebook" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="sr-only">Facebook</span></a>
+            <a class="icon icon--youtube" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="sr-only">YouTube</span></a>
+            <a class="icon icon--instagram" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="sr-only">Instagram</span></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <nav aria-label="principal">
+      <ul class="menu">
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="compra.html">Comprar</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Rascadores modulares que combinan con tu hogar</h2>
+        <p>Diseños personalizables en color y tamaño. Resistentes, fáciles de armar y listos para consentir a tu felino.</p>
+        <a class="btn btn-primary" href="catalogo.html">Ver catálogo</a>
+      </div>
+      <figure class="hero-media">
+        <img src="portada-1.jpg" alt="Gato usando un rascador modular de yute en sala hogareña" />
+      </figure>
+    </section>
+
+    <section class="beneficios">
+      <h3>¿Por qué nuestros rascadores?</h3>
+      <ul class="bullets">
+        <li>Protegen tus muebles y satisfacen el instinto de afilar uñas.</li>
+        <li>Modulares: arma el diseño que tu gato y tu espacio necesitan.</li>
+        <li>Materiales: aglomerado resistente + cuerda de sisal o yute.</li>
+      </ul>
+    </section>
+
+    <section class="oferta-buen-fin" aria-label="Ofertas Buen Fin">
+      <h3>OFERTA - BUEN FIN</h3>
+      <div class="oferta-grid">
+        
+        <article class="oferta-card">
+          <div class="oferta-actions">
+            <button class="btn btn-primary" onclick="agregarAlCarrito(1, this)">Comprar</button>
+            <a href="carrito.html" class="btn-go-cart">Ir al carrito</a>
+          </div>
+          <figure>
+            <img src="modelo-1.jpg" alt="Rascador modelo 1 en oferta" />
+            <figcaption>Modelo 1 - Oferta Especial</figcaption>
+          </figure>
+        </article>
+
+        <article class="oferta-card">
+          <div class="oferta-actions">
+            <button class="btn btn-primary" onclick="agregarAlCarrito(2, this)">Comprar</button>
+            <a href="carrito.html" class="btn-go-cart">Ir al carrito</a>
+          </div>
+          <figure>
+            <img src="modelo-2.jpg" alt="Rascador modelo 2 en oferta" />
+            <figcaption>Modelo 2 - Oferta Especial</figcaption>
+          </figure>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="cta">
+      <h3>¿Listo para comprar?</h3>
+      <p>Elige tu modelo, color y tamaño en el catálogo y completa el formulario.</p>
+      <a class="btn btn-secondary" href="compra.html">Comprar ahora</a>
+    </section>
+
+    <section class="referencias">
+      <h4>Referencias</h4>
+      <ul>
+        <li>Imágenes gratuitas obtenidas de: www.unsplash.com</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+
+    const productosOferta = {
+      1: {
+        id: 101,
+        title: "Modelo 1 (Edición Buen Fin)",
+        price: 850, 
+        img: "modelo-1.jpg",
+        color: "Beige Natural",
+        tamano: "Mediano",
+        cantidad: 1
+      },
+      2: {
+        id: 102,
+        title: "Modelo 2 (Torre Buen Fin)",
+        price: 1200, 
+        img: "modelo-2.jpg",
+        color: "Gris",
+        tamano: "Grande",
+        cantidad: 1
+      }
+    };
+
+
+    const CART_KEY = 'cart_rc';
+
+
+    const getCart = () => JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+
+    const setCart = (c) => localStorage.setItem(CART_KEY, JSON.stringify(c));
+
+
+    function agregarAlCarrito(modeloId, btnElement) {
+      const cart = getCart();
+      const productoNuevo = productosOferta[modeloId];
+
+      const existenteIndex = cart.findIndex(p => p.title === productoNuevo.title);
+
+      if (existenteIndex > -1) {
+
+        cart[existenteIndex].cantidad++;
+      } else {
+
+        cart.push({ ...productoNuevo });
+      }
+
+      // Guardamos en LocalStorage
+      setCart(cart);
+
+
+      const textoOriginal = btnElement.innerText;
+      btnElement.innerText = "¡Agregado!";
+      
+
+      const botonIrCarrito = btnElement.parentElement.querySelector('.btn-go-cart');
+      if(botonIrCarrito) {
+        botonIrCarrito.classList.add('visible');
+      }
+
+      setTimeout(() => {
+        btnElement.innerText = textoOriginal;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrito · Ráscate en Casa</title>
+  <link rel="stylesheet" href="styleUno.css" />
+  <link rel="stylesheet" href="style2.css" />
+  <style>
+    .cart-layout{display:grid;grid-template-columns: 1.4fr 360px;gap:1.25rem;align-items:start}
+    .cart-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:.8rem;padding:1rem}
+    .cart-item{display:grid;grid-template-columns:100px 1fr 120px;gap:1rem;align-items:center;padding: .5rem 0;border-bottom:1px solid rgba(0,0,0,.06)}
+    .cart-item:last-child{border-bottom:0}
+    
+
+    .cart-item img { cursor: zoom-in; transition: opacity 0.2s; }
+    .cart-item img:hover { opacity: 0.8; }
+
+    .qty{display:flex;gap:.35rem;align-items:center}
+    .qty button{width:28px;height:28px;border-radius:.5rem;border:1px solid rgba(0,0,0,.2);background:#fff;cursor:pointer}
+    .qty input{width:48px;text-align:center}
+    .empty{text-align:center;color:#666;padding:2rem 1rem}
+    .totals .row{display:flex;justify-content:space-between;margin:.35rem 0}
+    .totals .row.total{font-weight:700;font-size:1.1rem}
+    
+    @media (max-width: 980px){ .cart-layout{grid-template-columns:1fr} }
+
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 9999; 
+      padding-top: 50px; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.85); 
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90vh; 
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      animation: zoom 0.3s;
+    }
+
+    @keyframes zoom {
+      from {transform:scale(0)} 
+      to {transform:scale(1)}
+    }
+
+   
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <h1>Ráscate en Casa</h1>
+  <nav aria-label="principal">
+    <ul class="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="compra.html">Comprar</a></li>
+      <li><a href="carrito.html" aria-current="page">Carrito</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="cart-layout">
+    <div class="cart-card">
+      <h2>Carrito</h2>
+      <div id="cartList"></div>
+      <p><a class="btn" href="catalogo.html">Seguir comprando</a></p>
+    </div>
+
+    <aside class="cart-card">
+      <h3>Resumen</h3>
+      <div class="totals" id="totals"></div>
+      <a class="btn btn-primary" href="pago.html" id="checkoutBtn">Proceder al pago</a>
+    </aside>
+  </section>
+</main>
+
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="imgExpanded">
+</div>
+
+<script>
+  const CART_KEY='cart_rc';
+  const getCart=()=>JSON.parse(localStorage.getItem(CART_KEY)||'[]');
+  const setCart=(c)=>localStorage.setItem(CART_KEY,JSON.stringify(c));
+
+  const listEl = document.getElementById('cartList');
+  const totalsEl = document.getElementById('totals');
+  const checkoutBtn = document.getElementById('checkoutBtn');
+
+
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("imgExpanded");
+
+  function money(n){ return n.toLocaleString('es-MX',{style:'currency',currency:'MXN'}); }
+
+ 
+  function openModal(src) {
+    modal.style.display = "flex"; 
+    modalImg.src = src;
+  }
+
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+
+  function render(){
+    const cart = getCart();
+    listEl.innerHTML='';
+    if(cart.length===0){
+      listEl.innerHTML = '<div class="empty">Tu carrito está vacío.</div>';
+      totalsEl.innerHTML = '';
+      checkoutBtn.classList.add('disabled');
+      checkoutBtn.setAttribute('aria-disabled','true');
+      return;
+    }
+    checkoutBtn.classList.remove('disabled');
+    checkoutBtn.removeAttribute('aria-disabled');
+
+    cart.forEach((p,i)=>{
+      const row = document.createElement('div');
+      row.className='cart-item';
+      // MODIFICACIÓN: Agregamos onclick="openModal(...)" a la imagen
+      row.innerHTML = `
+        <img src="${p.img}" alt="${p.title}" onclick="openModal('${p.img}')" title="Clic para ampliar" />
+        <div>
+          <strong>${p.title}</strong><br>
+          Color: ${p.color || '-'} · Tamaño: ${p.tamano || '-'}<br>
+          <button class="btn" data-remove="${i}" style="margin-top:.35rem">Eliminar</button>
+        </div>
+        <div style="text-align:right">
+          <div class="qty">
+            <button data-dec="${i}">−</button>
+            <input type="number" min="1" value="${p.cantidad}" data-qty="${i}">
+            <button data-inc="${i}">+</button>
+          </div>
+          <div style="margin-top:.4rem;font-weight:700">${money(p.price*p.cantidad)}</div>
+        </div>
+      `;
+      listEl.appendChild(row);
+    });
+
+    // Totales
+    const subtotal = cart.reduce((s,p)=>s+p.price*p.cantidad,0);
+    const envio = subtotal>=1500?0:99;
+    const total = subtotal+envio;
+
+    totalsEl.innerHTML = `
+      <div class="row"><span>Subtotal</span><span>${money(subtotal)}</span></div>
+      <div class="row"><span>Envío</span><span>${envio===0?'Gratis':money(envio)}</span></div>
+      <div class="row total"><span>Total</span><span>${money(total)}</span></div>
+      <p class="secure">El envío real se calcula al finalizar la compra.</p>
+    `;
+  }
+
+  // Eventos
+  document.addEventListener('click', (e)=>{
+    const cart = getCart();
+    if(e.target.dataset.remove){
+      cart.splice(+e.target.dataset.remove,1); setCart(cart); render();
+    }
+    if(e.target.dataset.inc){
+      cart[+e.target.dataset.inc].cantidad++; setCart(cart); render();
+    }
+    if(e.target.dataset.dec){
+      const idx=+e.target.dataset.dec;
+      cart[idx].cantidad = Math.max(1, cart[idx].cantidad-1);
+      setCart(cart); render();
+    }
+  });
+  document.addEventListener('change',(e)=>{
+    if(e.target.dataset.qty!==undefined){
+      const cart=getCart(), i=+e.target.dataset.qty;
+      cart[i].cantidad = Math.max(1, parseInt(e.target.value||'1',10));
+      setCart(cart); render();
+    }
+  });
+
+  render();
+</script>
+</body>
+</html>

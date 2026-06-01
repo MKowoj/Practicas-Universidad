@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>¡Gracias por tu compra! · Ráscate en Casa</title>
+  <meta name="description" content="Confirmación de pedido de Ráscate en Casa." />
+  <link rel="stylesheet" href="styleUno.css" />
+  <link rel="stylesheet" href="style2.css" />
+  <style>
+    .thanks-wrap{
+      max-width: 880px; margin: 0 auto; text-align: center;
+      background:#fff; border:1px solid rgba(0,0,0,.08);
+      border-radius:.9rem; padding:2rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06);
+    }
+    .order-id{font-size:1.1rem; font-weight:700; margin:.25rem 0 .75rem}
+    .lead{font-size:1.15rem; margin:.5rem 0 1rem}
+    .actions{display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin-top:1rem}
+    .muted{color:#666}
+    .confetti{font-size:2rem; line-height:1}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Ráscate en Casa</h1>
+    <nav aria-label="principal">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="compra.html">Comprar</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <div class="thanks-wrap">
+        <div class="confetti">🎉</div>
+        <h2>¡Gracias por tu compra!</h2>
+        <p class="order-id">N.º de pedido: <span id="orderId">—</span></p>
+        <p class="lead">Hemos recibido tu pedido y lo estamos preparando.</p>
+        <p class="muted">Te enviaremos la confirmación y el seguimiento al correo que registraste.</p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="catalogo.html">Ver más modelos</a>
+          <a class="btn" href="index.html">Volver al inicio</a>
+        </div>
+
+        <div style="margin-top:1.25rem">
+          <p class="muted">¿Subiste un archivo en “Carga tu diseño”? Si necesitamos detalles adicionales, te contactaremos por correo.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function randomId(){
+      const now = new Date();
+      const pad = (n) => String(n).padStart(2,'0');
+      const y = now.getFullYear().toString().slice(-2);
+      const m = pad(now.getMonth()+1);
+      const d = pad(now.getDate());
+      const h = pad(now.getHours());
+      const min = pad(now.getMinutes());
+      const s = pad(now.getSeconds());
+      const rand = Math.random().toString(36).slice(2,5).toUpperCase();
+      return `RC-${y}${m}${d}-${h}${min}${s}-${rand}`;
+    }
+    document.getElementById('orderId').textContent = randomId();
+  </script>
+</body>
+</html>

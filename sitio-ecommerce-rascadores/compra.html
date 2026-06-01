@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comprar · Ráscate en Casa</title>
+  <meta name="description" content="Compra rascadores modulares y personalizables: elige color, tamaño y sube tu diseño." />
+  <link rel="stylesheet" href="styleUno.css" />
+  <link rel="stylesheet" href="style2.css" />
+  <style>
+    .buy-layout{display:grid;grid-template-columns: 1.1fr 1fr 340px;gap:1.25rem;align-items:start}
+    .gallery{display:grid;grid-template-columns:80px 1fr;gap:1rem}
+    .thumbs{display:flex;flex-direction:column;gap:.5rem}
+    .thumbs img{width:80px;height:80px;object-fit:cover;border-radius:.5rem;border:1px solid rgba(0,0,0,.08);cursor:pointer}
+    .thumbs img.active{outline:2px solid var(--brand)}
+    .main-photo{background:#fff;border-radius:.8rem;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .main-photo img{width:100%;aspect-ratio: 4/3;object-fit:cover}
+    .product-title{margin:0 0 .25rem;font-size:clamp(1.25rem,2.6vw,1.75rem)}
+    .rating{font-size:.95rem;color:#666}
+    .price{font-size:1.6rem;font-weight:700;margin:.25rem 0}
+    .buy-box{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:.8rem;padding:1rem;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+    .buy-box .btn{display:block;width:100%;text-align:center;margin:.5rem 0}
+    .stock{color:#2a7b2e;font-weight:600;margin:.25rem 0}
+    .selector{display:grid;gap:.5rem;margin:.75rem 0}
+    .selector label{font-weight:600}
+    .features ul{margin:.5rem 0 0;padding-left:1.15rem}
+    .secure{font-size:.85rem;color:#666;margin-top:.5rem}
+    @media (max-width: 980px){ .buy-layout{grid-template-columns:1fr} .buy-box{position:static} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Ráscate en Casa</h1>
+    <nav aria-label="principal">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="compra.html" aria-current="page">Comprar</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="buy-layout">
+      <div class="gallery" aria-label="Galería de producto">
+        <div class="thumbs">
+          <img src="modelo-1.jpg" alt="Vista 1 del rascador" class="active" data-target="modelo-1.jpg">
+          <img src="modelo-2.jpg" alt="Vista 2 del rascador" data-target="modelo-2.jpg">
+          <img src="modelo-3.jpg" alt="Vista 3 del rascador" data-target="modelo-3.jpg">
+          <img src="modelo-4.jpg" alt="Vista 4 del rascador" data-target="modelo-4.jpg">
+        </div>
+        <figure class="main-photo">
+          <img id="mainImage" src="modelo-1.jpg" alt="Rascador modular principal">
+        </figure>
+      </div>
+
+      <article>
+        <h2 class="product-title">Rascador modular para gato · Personalizable</h2>
+        <p class="rating">★★★★★ 4.8 · 320 reseñas · Marca: Ráscate en Casa</p>
+        <p>Diseño modular con poste de sisal o yute, base estable y opciones de cama/torre.
+          Pensado para departamentos y gatos de todos los tamaños.</p>
+
+        <div class="price">$1,199 <span style="font-size:1rem;font-weight:400;color:#666">MXN</span></div>
+
+        <div class="features">
+          <h3>Características</h3>
+          <ul>
+            <li>Materiales: aglomerado de alta resistencia, tapizado suave, cuerda de sisal o yute.</li>
+            <li>Modular: agrega o quita niveles cuando lo necesites.</li>
+            <li>Incluye herrajes y guía de armado.</li>
+            <li>Envío nacional.</li>
+          </ul>
+        </div>
+
+        <section aria-labelledby="specs">
+          <h3 id="specs">Especificaciones</h3>
+          <ul>
+            <li>Base 45×45 cm (referencia del modelo en imágenes).</li>
+            <li>Altura configurable: 60–120 cm.</li>
+            <li>Colores de tapiz y cuerdas personalizables.</li>
+          </ul>
+        </section>
+      </article>
+
+      <aside class="buy-box" aria-label="Opciones de compra">
+        <div class="stock">Disponible</div>
+        <div class="price">$1,199 MXN</div>
+
+        <form onsubmit="return false" enctype="multipart/form-data">
+          <div class="selector">
+            <label for="color">Color</label>
+            <select id="color" name="color" required>
+              <option value="">Elige un color…</option>
+              <option value="arena">Arena (var(--sand))</option>
+              <option value="durazno">Durazno (var(--peach))</option>
+              <option value="teal">Teal (var(--brand))</option>
+              <option value="grafito">Grafito (oscuro)</option>
+            </select>
+          </div>
+
+          <div class="selector">
+            <label for="tamano">Tamaño del gato</label>
+            <select id="tamano" name="tamano" required>
+              <option value="">Selecciona…</option>
+              <option value="S">Pequeño (≤3.5 kg)</option>
+              <option value="M">Mediano (3.6–5.5 kg)</option>
+              <option value="L">Grande (5.6–7.5 kg)</option>
+              <option value="XL">XL (≥7.6 kg)</option>
+            </select>
+          </div>
+
+          <div class="selector">
+            <label for="diseno">Carga tu diseño (opcional)</label>
+            <input type="file" id="diseno" name="diseno" accept=".jpg,.jpeg,.png,.pdf,.svg">
+            <small class="secure">Formatos: JPG, PNG, PDF o SVG. Máx. 10 MB.</small>
+          </div>
+
+          <div class="selector">
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" value="1" style="max-width:120px">
+          </div>
+
+          <button class="btn btn-primary" type="button" id="btnCarrito">Agregar al carrito</button>
+          <button class="btn btn-secondary" type="button" id="btnComprar">Comprar ahora</button>
+
+          <p class="secure">Transacción segura · Envío calculado al finalizar la compra.</p>
+        </form>
+      </aside>
+    </section>
+
+    <section class="parte1" aria-labelledby="reviews">
+      <h3 id="reviews">Opiniones destacadas</h3>
+      <p><strong>Ana M.</strong> — “Mi gato dejó en paz el sillón. El módulo XL es perfecto.”</p>
+      <p><strong>Jorge R.</strong> — “Fácil de armar y los colores combinan con mi sala.”</p>
+    </section>
+  </main>
+
+  <script>
+    const thumbs = document.querySelectorAll('.thumbs img');
+    const main = document.getElementById('mainImage');
+    thumbs.forEach(t => {
+      t.addEventListener('click', () => {
+        thumbs.forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        main.src = t.dataset.target;
+        main.alt = t.alt.replace('Vista', 'Imagen');
+      });
+    });
+
+    const CART_KEY = 'cart_rc'; 
+    const getCart = () => JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+    const setCart = (items) => localStorage.setItem(CART_KEY, JSON.stringify(items));
+
+    function getModeloFromURL(){
+      const url = new URL(location.href);
+      return url.searchParams.get('modelo') || '1';
+    }
+
+    const PRICE_BY_MODEL = {
+      '1': 1199, '2': 1199, '3': 1350, '4': 990, '5': 1450, '6': 1290
+    };
+
+    function buildItem() {
+      const color = document.getElementById('color').value;
+      const tamano = document.getElementById('tamano').value;
+      const cantidad = Math.max(1, parseInt(document.getElementById('cantidad').value || '1', 10));
+      const img = document.getElementById('mainImage').src;
+
+      const modelo = getModeloFromURL();    
+      const price = PRICE_BY_MODEL[modelo] ?? 1199;
+
+      const fileInput = document.getElementById('diseno');
+      const customFileName = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0].name : '';
+
+      return {
+        id: `m${modelo}-${color}-${tamano}`,
+        modelo, color, tamano, cantidad,
+        price, img,
+        customFileName,
+        title: `Modelo ${modelo}`
+      };
+    }
+
+    function requireSelections(item){
+      if(!item.color || !item.tamano){
+        alert('Elige color y tamaño antes de continuar.');
+        return false;
+      }
+      return true;
+    }
+
+    document.getElementById('btnCarrito').addEventListener('click', () => {
+      const item = buildItem();
+      if(!requireSelections(item)) return;
+
+      const cart = getCart();
+      const idx = cart.findIndex(p => p.id === item.id);
+      if (idx >= 0) { cart[idx].cantidad += item.cantidad; }
+      else { cart.push(item); }
+      setCart(cart);
+
+      location.href = 'carrito.html';
+    });
+
+    document.getElementById('btnComprar').addEventListener('click', () => {
+      const item = buildItem();
+      if(!requireSelections(item)) return;
+
+      setCart([item]);
+      location.href = 'pago.html';
+    });
+  </script>
+</body>
+</html>
+  

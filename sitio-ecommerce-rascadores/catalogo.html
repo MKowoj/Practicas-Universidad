@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo · Ráscate en Casa</title>
+  <meta name="description" content="Catálogo de rascadores modulares para gato. Desplázate lateralmente para ver todos los modelos." />
+  <link rel="stylesheet" href="styleUno.css" />
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Ráscate en Casa</h1>
+    <nav aria-label="principal">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html" aria-current="page">Catálogo</a></li>
+        <li><a href="compra.html">Comprar</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="Carrito.html">Carrito</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="catalog-hero">
+      <h2>Catálogo</h2>
+      <p>Desliza para ver más modelos o usa las flechas.</p>
+    </section>
+
+    <section class="carousel" aria-label="Galería de modelos">
+      <button class="arrow left" aria-label="Anterior" title="Anterior">
+        &#10094;
+      </button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+
+          <article class="card">
+            <figure>
+              <img src="modelo-1.jpg" alt="Rascador modelo 1" loading="lazy">
+            </figure>
+            <h3>Modelo 1</h3>
+            <p class="meta">Sisal natural · Modular</p>
+            <p class="price">$899 MXN</p>
+            <a class="btn btn-primary" href="compra.html?modelo=1">Comprar</a>
+          </article>
+
+          <article class="card">
+            <figure>
+              <img src="modelo-2.jpg" alt="Rascador modelo 2" loading="lazy">
+            </figure>
+            <h3>Modelo 2</h3>
+            <p class="meta">Torre doble · Tapizado</p>
+            <p class="price">$1,199 MXN</p>
+            <a class="btn btn-primary" href="compra.html?modelo=2">Comprar</a>
+          </article>
+
+          <article class="card">
+            <figure>
+              <img src="modelo-3.jpg" alt="Rascador modelo 3" loading="lazy">
+            </figure>
+            <h3>Modelo 3</h3>
+            <p class="meta">Cama elevada · Yute</p>
+            <p class="price">$1,350 MXN</p>
+            <a class="btn btn-primary" href="compra.html?modelo=3">Comprar</a>
+          </article>
+
+          <article class="card">
+            <figure>
+              <img src="modelo-4.jpg" alt="Rascador modelo 4" loading="lazy">
+            </figure>
+            <h3>Modelo 4</h3>
+            <p class="meta">Esquinero · Ahorra espacio</p>
+            <p class="price">$990 MXN</p>
+            <a class="btn btn-primary" href="compra.html?modelo=4">Comprar</a>
+          </article>
+
+          <article class="card">
+            <figure>
+              <img src="modelo-5.jpg" alt="Rascador modelo 5" loading="lazy">
+            </figure>
+            <h3>Modelo 5</h3>
+            <p class="meta">Poste XL · Gatos grandes</p>
+            <p class="price">$1,450 MXN</p>
+            <a class="btn btn-primary" href="compra.html?modelo=5">Comprar</a>
+          </article>
+
+          <article class="card">
+            <figure>
+              <img src="modelo-6.jpg" alt="Rascador modelo 6" loading="lazy">
+            </figure>
+            <h3>Modelo 6</h3>
+            <p class="meta">Cueva + rampa</p>
+            <p class="price">$1,290 MXN</p>
+            <a class="btn btn-primary" href="compra.html?modelo=6">Comprar</a>
+          </article>
+        </div>
+      </div>
+
+      <button class="arrow right" aria-label="Siguiente" title="Siguiente">
+        &#10095;
+      </button>
+
+      <div class="edge-fade left"></div>
+      <div class="edge-fade right"></div>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      const track = document.querySelector('.carousel-track');
+      const left = document.querySelector('.arrow.left');
+      const right = document.querySelector('.arrow.right');
+
+      const scrollAmount = () => Math.min(520, track.clientWidth * 0.8);
+
+      left.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollAmount(), behavior:'smooth' });
+      });
+      right.addEventListener('click', () => {
+        track.scrollBy({ left:  scrollAmount(), behavior:'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

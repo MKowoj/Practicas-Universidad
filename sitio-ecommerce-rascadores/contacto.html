@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto · Ráscate en Casa</title>
+  <meta name="description" content="Envíanos una queja, sugerencia o solicita soporte. ¡Estamos para ayudarte!" />
+  <link rel="stylesheet" href="styleUno.css" />
+  <link rel="stylesheet" href="style2.css" />
+  <style>
+    .contact-wrap{max-width:980px;margin:0 auto}
+    .card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:.8rem;padding:1rem 1.1rem;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+    .form-grid{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}
+    .form-grid .full{grid-column:1/-1}
+    label{font-weight:600;font-size:.95rem}
+    input, select, textarea{width:100%;padding:.65rem .7rem;border:1px solid rgba(0,0,0,.2);border-radius:.6rem;font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .hint{font-size:.88rem;color:#666;margin-top:.25rem}
+    .actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
+    .success{display:none;margin-top:1rem;padding:.8rem;border-radius:.6rem;background:#eaf8ef;color:#205d2a;border:1px solid #bfe6cb}
+    .error{display:none;margin-top:1rem;padding:.8rem;border-radius:.6rem;background:#fdecec;color:#7a1d1d;border:1px solid #f3bcbc}
+    .hidden{position:absolute !important;left:-9999px !important}
+    @media (max-width: 840px){ .form-grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Ráscate en Casa</h1>
+    <nav aria-label="principal">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="compra.html">Comprar</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-wrap">
+    <section>
+      <h2>Contacto</h2>
+      <p>Cuéntanos si tienes una <strong>queja</strong>, una <strong>sugerencia</strong> o necesitas <strong>soporte</strong>. Responderemos lo antes posible.</p>
+    </section>
+
+    <section class="card" aria-label="Formulario de contacto">
+      <form id="contactForm" onsubmit="return false" novalidate>
+        <div class="form-grid">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="email">Correo</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div>
+            <label for="tipo">Tipo de solicitud</label>
+            <select id="tipo" name="tipo" required>
+              <option value="">Elige una opción…</option>
+              <option value="queja">Queja</option>
+              <option value="sugerencia">Sugerencia</option>
+              <option value="soporte">Soporte</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="pedido">N.º de pedido (opcional)</label>
+            <input id="pedido" name="pedido" placeholder="Ej. RC-250922-134501-ABC">
+            <div class="hint">Si tu consulta es sobre una compra, incluir el número nos ayuda a localizarla más rápido.</div>
+          </div>
+
+          <div class="full">
+            <label for="asunto">Asunto</label>
+            <input id="asunto" name="asunto" required placeholder="Breve resumen de tu solicitud">
+          </div>
+
+          <div class="full">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required placeholder="Describe el problema o tu idea con el mayor detalle posible"></textarea>
+          </div>
+
+          <div class="full">
+            <label for="archivo">Adjuntar archivo (opcional)</label>
+            <input id="archivo" name="archivo" type="file" accept=".jpg,.jpeg,.png,.pdf,.mp4,.mov,.zip,.txt,.doc,.docx,.xls,.xlsx,.csv,.svg">
+            <div class="hint">Evidencia, capturas o un video corto. Máx. 20 MB (simulado).</div>
+          </div>
+
+          <div class="full">
+            <label for="preferencia">¿Cómo te contactamos?</label>
+            <select id="preferencia" name="preferencia" required>
+              <option value="">Elige un medio…</option>
+              <option value="email">Correo electrónico</option>
+              <option value="telefono">Teléfono / WhatsApp</option>
+            </select>
+          </div>
+
+          <div class="full" id="telefonoWrap" style="display:none">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" inputmode="tel" placeholder="+52 55 1234 5678">
+          </div>
+
+          <input class="hidden" type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="full">
+            <label class="inline" style="display:flex;gap:.5rem;align-items:center">
+              <input type="checkbox" id="consent" required>
+              <span>Acepto ser contactada/o para dar seguimiento a mi solicitud.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" type="reset">Limpiar</button>
+          <button class="btn btn-primary" id="btnEnviar" type="submit">Enviar</button>
+        </div>
+
+        <div class="success" id="okMsg" role="status">¡Gracias! Tu solicitud ha sido registrada. Te contactaremos pronto.</div>
+        <div class="error" id="errMsg" role="alert">No se pudo enviar. Revisa los campos e inténtalo de nuevo.</div>
+      </form>
+    </section>
+
+    <section class="parte1" aria-labelledby="faq">
+      <h3 id="faq">¿Necesitas ayuda rápida?</h3>
+      <p>Consulta nuestra guía de armado en <a href="catalogo.html">Catálogo</a> o escríbenos a <a href="mailto:kowoj@outlook.com">contacto@outlook.com</a>.</p>
+    </section>
+  </main>
+
+  <script>
+    const pref = document.getElementById('preferencia');
+    const telWrap = document.getElementById('telefonoWrap');
+    pref.addEventListener('change', () => {
+      telWrap.style.display = pref.value === 'telefono' ? '' : 'none';
+      if(pref.value !== 'telefono'){
+        document.getElementById('telefono').value = '';
+      }
+    });
+    const FORM_KEY = 'tickets_rc';
+    const form = document.getElementById('contactForm');
+    const okMsg = document.getElementById('okMsg');
+    const errMsg = document.getElementById('errMsg');
+
+    function getTickets(){ return JSON.parse(localStorage.getItem(FORM_KEY) || '[]'); }
+    function setTickets(arr){ localStorage.setItem(FORM_KEY, JSON.stringify(arr)); }
+
+    function validate() {
+      if (document.getElementById('company').value) return false;
+
+      const required = ['nombre','email','tipo','asunto','mensaje','preferencia','consent'];
+      for (const id of required) {
+        const el = document.getElementById(id);
+        if (id === 'consent') { if(!el.checked) return false; continue; }
+        if (!el.value || !el.value.trim()) return false;
+      }
+ 
+      const email = document.getElementById('email').value.trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return false;
+
+      if (pref.value === 'telefono') {
+        const tel = document.getElementById('telefono').value.trim();
+        if (tel.length < 8) return false;
+      }
+      return true;
+    }
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      okMsg.style.display='none';
+      errMsg.style.display='none';
+
+      if(!validate()){
+        errMsg.style.display='block';
+        return;
+      }
+
+      const data = {
+        id: 'T-' + Date.now(),
+        fecha: new Date().toISOString(),
+        nombre: document.getElementById('nombre').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        tipo: document.getElementById('tipo').value,
+        pedido: document.getElementById('pedido').value.trim(),
+        asunto: document.getElementById('asunto').value.trim(),
+        mensaje: document.getElementById('mensaje').value.trim(),
+        preferencia: document.getElementById('preferencia').value,
+        telefono: document.getElementById('telefono').value.trim(),
+        archivoNombre: (document.getElementById('archivo').files[0]?.name) || ''
+      };
+
+      const tickets = getTickets();
+      tickets.push(data);
+      setTickets(tickets);
+
+      okMsg.style.display='block';
+      form.reset();
+      telWrap.style.display='none';
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
