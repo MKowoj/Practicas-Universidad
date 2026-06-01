@@ -52,14 +52,25 @@ Repositorio destinado a almacenar las prácticas, tareas y ejercicios de la carr
   * Integración de JS, HTML y CSS
 * [🔗 Ver sitio web en vivo](https://mkowoj.github.io/Practicas-Universidad/Reloj/)
 
-* ## 7. Cuento
+* ## 8. Cuento
 * **Carpeta:** `Cuento`
 * **Descripción:** Creación de un sitio web para visualizar un cuento realizado con procreate y usando imágenes como botones de avanzar. 
 * [🔗 Ver sitio web en vivo](https://mkowoj.github.io/Practicas-Universidad/Cuento/)
 
-* ## 8. Pagina con web responsive
+* ## 9. Pagina con web responsive
 * **Carpeta:** `responsivo-ejercicio`
 * **Descripción:** Creación de un sitio web para visualizar un cuento realizado con procreate y usando imágenes como botones de avanzar. 
 * [🔗 Ver sitio web en vivo](https://mkowoj.github.io/Practicas-Universidad/responsivo-ejercicio/)
-  
+
+* ## 10. Tienda online de rascadores
+* **Carpeta:** `sitio-ecommerce-rascadores`
+* **Descripción:** Interfaz de tienda en línea para la comercialización de rascadores modulares de gato, desarrollada con un enfoque en la optimización de recursos multimedia y la persistencia de datos local para mejorar la velocidad de carga.
+* **Conceptos aplicados:**
+  * Optimización de imágenes y rendimiento web mediante **CSS Sprites**.
+  * Escalabilidad visual con variables CSS (**Custom Properties**).
+  * Persistencia de datos local a través de **Web Storage API (LocalStorage)**.
+  * Manipulación de estructuras de datos orientada a objetos en JavaScript (**JSON** y métodos de arreglos).
+  * Accesibilidad web utilizando etiquetas semánticas y **atributos WAI-ARIA**.
+  * Maquetación responsiva basada en **Flexbox** y **Media Queries**.
+* [🔗 Ver sitio web en vivo](https://mkowoj.github.io/Practicas-Universidad/sitio-ecommerce-rascadores/)
   
