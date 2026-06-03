@@ -1,0 +1,51 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: sans-serif;
+}
+.encabezado, .pie-pag{
+  background-color: grey;
+  color: white;
+  top: auto;
+  width: 100%;
+  padding: 2%;
+}
+
+.clearfix{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu {
+  width: 25%;
+  padding: 20px;
+  background-color: white;
+}
+
+.menu ul {
+  list-style-type: none;
+}
+
+.menu li {
+  background-color: #33b5e5;
+  color: #ffffff;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.menu li:hover {
+  background-color: #067498;
+}
+
+.contenido {
+  width: 75%;
+  background-color: lightblue;
+  padding: 15px
+}
+
+
+
