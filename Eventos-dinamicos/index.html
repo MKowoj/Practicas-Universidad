@@ -1,0 +1,80 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Inventario</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="contenedor-principal">
+      <div class="titulo">
+        <h1>Registro de inventario de equipos de TI</h1>
+      </div>
+
+      <div class="formulario">
+        <form id="formularioEquipos">
+          <fieldset class="datos-equipo">
+            <legend>Datos del Equipo</legend>
+            <br>
+            <label id="nombre-equipo" for="equipo">Tipo de equipo:</label>
+            <input type="text" id="equipo" name="equipo" required placeholder="Laptop">
+            <br>
+            <label id="nombre-marca" for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca" required placeholder="Lenovo">
+            <br>
+            <label id="nombre-modelo" for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required placeholder="Thinkpad T9">
+            <br>
+            <label id="nombre-status" for="status">Selecciona un estatus:</label>
+            <br>
+            <select id="status" name="status">
+              <option value="" disabled selected>--Selecciona una opción--</option>
+              <option value="nuevo">Nuevo</option>
+              <option value="usado">Usado</option>
+              <option value="garantia">En garantía</option>
+              <option value="dañado">Dañado</option>
+            </select>
+          </fieldset>
+          <br>
+          <fieldset class="datos-equipo">
+            <legend>Condiciones de Ingreso</legend>
+            <p id="nombre-condiciones"><strong>Seleccione del listado</strong></p>
+            <input type="checkbox" id="condicion1" name="condicion1" value="condicion1">
+            <label for="condicion1">-Caja original con sellos originales</label>
+            <br>
+            <input type="checkbox" id="condicion2" name="condicion2" value="condicion2">
+            <label for="condicion2">-Equipo sin caja original</label>
+            <br>
+            <input type="checkbox" id="condicion3" name="condicion3" value="condicion3">
+            <label for="condicion3">-Caja original abierta y re-encintada</label>
+            <br>
+            <input type="checkbox" id="condicion4" name="condicion4" value="condicion4">
+            <label for="condicion4">-Caja presenta daños</label>
+            <br>
+            <input type="checkbox" id="condicion5" name="condicion5" value="condicion5">
+            <label for="condicion5">-Caja se encuentra intacta</label>
+            <br>
+            <input type="checkbox" id="condicion6" name="condicion6" value="condicion6">
+            <label for="condicion6">-Contiene etiqueta del estado de funcionamiento del equipo</label>
+            <br>
+            <input type="checkbox" id="condicion7" name="condicion7" value="condicion7">
+            <label for="condicion7">-No se sabe si el equipo funciona o no</label>
+            <br><br>
+            <label id="nombre-comentario" for="comentarios">Características adicionales sobre el equipo:</label>
+            <br><br>
+            <textarea id="comentarios" name="comentarios" rows="3" cols="50" placeholder="El CPU llevaba 2 años en resguardo en sucursal sin trazabilidad."></textarea>
+          </fieldset>
+          <input id="boton" type="button" value="Registrar">
+        </form>
+      </div>
+      <hr>
+      <button id="botonVaciar">Borrar Todo</button>
+      <div id="divElements">
+        </div>
+
+      </div>
+      <script type="module" src="main.js"></script>
+    </div>
+  </body>
+  </html>
