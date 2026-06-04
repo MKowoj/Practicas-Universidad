@@ -73,4 +73,12 @@ Repositorio destinado a almacenar las prácticas, tareas y ejercicios de la carr
   * Accesibilidad web utilizando etiquetas semánticas y **atributos WAI-ARIA**.
   * Maquetación responsiva basada en **Flexbox** y **Media Queries**.
 * [🔗 Ver sitio web en vivo](https://mkowoj.github.io/Practicas-Universidad/sitio-ecommerce-rascadores/)
+
+## 11. Crear imagen
+* **Carpeta:** `crear-imagen`
+* **Descripción:** BACKEND mediante PHP se ingresan datos a través de un formulario y los datos ingresados son transformados en una imagen que se muestraen pantalla.
+
+* ## 11. Crear imagen
+* **Carpeta:** `Json-File`
+* **Descripción:** Sistema de inicio de sesión básico en PHP nativo. Implementa validación de credenciales predefinidas, manejo de estado mediante sesiones ($_SESSION) para registrar un historial LIFO y creación de cookies para rastreo del último acceso. Ejercicio académico sobre los fundamentos del backend.
   
