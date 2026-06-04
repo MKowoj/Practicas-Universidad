@@ -1,0 +1,186 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Inventario</title>
+      <style>
+        h1 {
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          text-align: center;
+          color: rgb(237, 237, 237);
+        }
+
+        body {
+          background-color: rgb(141, 78, 0);
+        }
+
+        .contenedor-principal {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .formulario, #divElements {
+          width: 95%;
+          max-width: 600px;
+        }
+
+        .formulario {
+          border-radius: 4%;
+        }
+
+        .datos-equipo {
+          background-color: blanchedalmond;
+          border: 4px solid black;
+          border-radius: 4%;
+          padding: 10px;
+          width: 100%;
+          margin: 0;
+        }
+
+        input[type="text"] {
+          margin-bottom: 5px;
+          width: 100%;
+        }
+        
+        legend {
+          color: blanchedalmond;
+          font-size: 20px;
+          background-color: rgb(20, 13, 1);
+          border-radius: 15%;
+        }
+
+        #boton {
+          font-size: larger;
+          background-color: rgb(53, 53, 175);
+          color: aliceblue;
+          padding: 8px;
+          border-radius: 15%;
+          margin-top: 8px;
+        }
+
+        #boton:hover {
+          background-color: rgb(77, 115, 175);
+        }
+
+        form{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          width: 100%;
+        }
+
+        #nombre-comentario {
+          font-size: larger;
+          font-weight: bold;
+        }
+        /* Estilos para la tarjeta del registro */
+        .Notification {
+          background-color: blanchedalmond;
+          border: 4px solid black;
+          border-radius: 4%;
+          padding: 15px;
+          margin-top: 20px; 
+          position: relative; 
+          width: 100%; 
+          box-sizing: border-box; 
+        }
+
+        /* Estilo para el botón de eliminar */
+        .delete {
+          background-color: rgb(200, 0, 0); /* Rojo oscuro */
+          color: white; 
+          font-weight: bold; 
+          font-size: 16px;
+          border: 2px solid black;
+          border-radius: 15%;
+          padding: 5px 10px;
+          cursor: pointer;
+          position: absolute; 
+          top: 10px;
+          right: 10px; 
+        }     
+
+        .delete:hover {
+          background-color: red; /* Se hace más brillante al pasar el mouse */
+        }
+
+        /* Separación entre los textos de cada tarjeta */
+        .Notification p {
+          margin: 8px 0;
+          padding-right: 30px; /* Evita que el texto choque con el botón X */
+        }
+      </style>
+  </head>
+  <body>
+    <div class="contenedor-principal">
+      <div class="titulo">
+        <h1>Registro de inventario de equipos de TI</h1>
+      </div>
+
+      <div class="formulario">
+        <form id="formularioEquipos">
+          <fieldset class="datos-equipo">
+            <legend>Datos del Equipo</legend>
+            <br>
+            <label id="nombre-equipo" for="equipo">Tipo de equipo:</label>
+            <input type="text" id="equipo" name="equipo" required placeholder="Laptop">
+            <br>
+            <label id="nombre-marca" for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca" required placeholder="Lenovo">
+            <br>
+            <label id="nombre-modelo" for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required placeholder="Thinkpad T9">
+            <br>
+            <label id="nombre-status" for="status">Selecciona un estatus:</label>
+            <br>
+            <select id="status" name="status">
+              <option value="" disabled selected>--Selecciona una opción--</option>
+              <option value="nuevo">Nuevo</option>
+              <option value="usado">Usado</option>
+              <option value="garantia">En garantía</option>
+              <option value="dañado">Dañado</option>
+            </select>
+          </fieldset>
+          <br>
+          <fieldset class="datos-equipo">
+            <legend id="nombre-condiciones">Condiciones de Ingreso</legend>
+            <br>
+            <input type="checkbox" id="condicion1" name="condicion1" value="condicion1">
+            <label for="condicion1">Caja original con sellos originales</label>
+            <br>
+            <input type="checkbox" id="condicion2" name="condicion2" value="condicion2">
+            <label for="condicion2">Equipo sin caja original</label>
+            <br>
+            <input type="checkbox" id="condicion3" name="condicion3" value="condicion3">
+            <label for="condicion3">Caja original abierta y re-encintada</label>
+            <br>
+            <input type="checkbox" id="condicion4" name="condicion4" value="condicion4">
+            <label for="condicion4">Caja presenta daños</label>
+            <br>
+            <input type="checkbox" id="condicion5" name="condicion5" value="condicion5">
+            <label for="condicion5">Caja se encuentra intacta</label>
+            <br>
+            <input type="checkbox" id="condicion6" name="condicion6" value="condicion6">
+            <label for="condicion6">Contiene etiqueta del estado de funcionamiento del equipo</label>
+            <br>
+            <input type="checkbox" id="condicion7" name="condicion7" value="condicion7">
+            <label for="condicion7">No se sabe si el equipo funciona o no.</label>
+            <br><br>
+            <label id="nombre-comentario" for="comentarios">Características adicionales sobre el equipo:</label>
+            <br><br>
+            <textarea id="comentarios" name="comentarios" rows="3" cols="50" placeholder="El CPU llevaba 2 años en resguardo en sucursal sin trazabilidad."></textarea>
+          </fieldset>
+          <input id="boton" type="button" value="Registrar">
+        </form>
+      </div>
+      <hr>
+        <div id="divElements">
+
+        </div>
+      </div>
+      <script type="module" src="main.js"></script>
+    </div>
+  </body>
+  </html>
